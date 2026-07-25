@@ -1183,3 +1183,154 @@ body.menu-open { overflow: hidden; }
 /* Language text-swap transition */
 [data-i18n] { transition: opacity 0.25s var(--ease); }
 body.lang-swapping [data-i18n] { opacity: 0; }
+
+/* =============================================================
+   Intro — Kenon Riviera Park cinematic build
+   ============================================================= */
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: radial-gradient(120% 100% at 50% 12%, #0b1119 0%, #06090c 60%, #04070a 100%);
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity 0.9s var(--ease), transform 1.1s var(--ease), visibility 0.9s;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.intro.hide {
+  opacity: 0;
+  transform: translateY(-2.5%) scale(1.03);
+  visibility: hidden;
+  pointer-events: none;
+}
+.intro canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+.intro-ui { position: absolute; inset: 0; pointer-events: none; }
+.intro-ui > * { position: absolute; }
+
+.intro-coords {
+  top: clamp(20px, 4vh, 40px);
+  left: var(--gutter);
+  font-family: var(--font-mono);
+  font-size: clamp(0.66rem, 2.6vw, 0.78rem);
+  letter-spacing: 0.16em;
+  color: var(--text-mute);
+  line-height: 1.9;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+.intro-coords b { display: block; color: var(--accent-soft); font-weight: 500; letter-spacing: 0.2em; }
+.intro.step-1 .intro-coords { opacity: 1; transform: none; }
+
+.intro-skip {
+  top: clamp(18px, 3.6vh, 36px);
+  right: var(--gutter);
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-mute);
+  padding: 9px 15px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(6, 9, 12, 0.4);
+  backdrop-filter: blur(6px);
+  transition: color 0.3s var(--ease), border-color 0.3s var(--ease);
+  min-height: 40px;
+}
+.intro-skip:hover { color: var(--text); border-color: var(--accent); }
+.intro-skip .bar { position: relative; width: 26px; height: 1px; background: var(--border-strong); overflow: hidden; }
+.intro-skip .bar::after {
+  content: ""; position: absolute; inset: 0;
+  background: var(--accent);
+  transform-origin: left;
+  transform: scaleX(var(--intro-progress, 0));
+}
+html[dir="rtl"] .intro-skip { right: auto; left: var(--gutter); }
+html[dir="rtl"] .intro-coords { left: auto; right: var(--gutter); text-align: right; }
+
+.intro-title {
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: clamp(30px, 8vh, 70px);
+  max-width: 720px;
+}
+.intro-title .eyebrow {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+.intro-title h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.3rem, 9vw, 5.4rem);
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+  margin: 16px 0 14px;
+  color: var(--text);
+  text-wrap: balance;
+}
+.intro-title h2 .w {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(90%) rotate(2deg);
+  transition: opacity 0.7s var(--ease-out), transform 0.9s var(--ease-out);
+}
+.intro-title .city {
+  font-family: var(--font-mono);
+  font-size: clamp(0.72rem, 3vw, 0.9rem);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+.intro-metrics {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  margin-top: 22px;
+  padding: 0;
+}
+.intro-metrics li {
+  font-family: var(--font-mono);
+  font-size: clamp(0.72rem, 2.6vw, 0.82rem);
+  color: var(--text);
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+}
+.intro-metrics li::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--glow); }
+
+.intro.step-title .intro-title .eyebrow { opacity: 1; transform: none; }
+.intro.step-title .intro-title h2 .w { opacity: 1; transform: none; }
+.intro.step-title .intro-title h2 .w:nth-child(2) { transition-delay: 0.08s; }
+.intro.step-title .intro-title h2 .w:nth-child(3) { transition-delay: 0.16s; }
+.intro.step-city .intro-title .city { opacity: 1; transform: none; }
+.intro.step-metrics .intro-metrics li { opacity: 1; transform: none; }
+.intro.step-metrics .intro-metrics li:nth-child(2) { transition-delay: 0.1s; }
+.intro.step-metrics .intro-metrics li:nth-child(3) { transition-delay: 0.2s; }
+
+/* hold hero entrance until the intro lifts */
+body.intro-playing .hero [data-hero],
+body.intro-playing .hero h1 span > i { animation-play-state: paused; }
+body.intro-playing { overflow: hidden; }
+
+@media (prefers-reduced-motion: reduce) {
+  .intro { display: none; }
+}
