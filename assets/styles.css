@@ -1597,3 +1597,42 @@ html[dir="rtl"] .pcard-coord { right: auto; left: 12px; }
 .vcard-dl { gap: 10px; }
 .vcard-dl .dl { font-size: 1.05rem; line-height: 1; transition: transform 0.35s var(--ease); }
 .vcard-dl:hover .dl { transform: translateY(3px); }
+
+/* =============================================================
+   Achievements timeline
+   ============================================================= */
+.timeline { list-style: none; position: relative; padding: 0; margin: 0; }
+.timeline::before {
+  content: ""; position: absolute; left: 27px; top: 10px; bottom: 10px; width: 1px;
+  background: linear-gradient(var(--accent-deep), rgba(39,127,140,0.15) 70%, transparent);
+  z-index: 0;
+}
+.tl-item {
+  display: grid; grid-template-columns: auto 1fr; gap: clamp(18px, 3vw, 34px);
+  align-items: start; padding: clamp(18px, 2.6vw, 28px) 0;
+  border-bottom: 1px solid var(--border);
+}
+.tl-item:last-child { border-bottom: none; }
+.tl-node {
+  position: relative; z-index: 1;
+  width: 54px; height: 54px; border-radius: 15px; display: grid; place-items: center;
+  border: 1px solid var(--border-strong); background: var(--bg-2);
+  font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-soft);
+  transition: border-color 0.4s var(--ease), color 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+@media (hover: hover) { .tl-item:hover .tl-node { border-color: var(--accent); color: var(--accent); box-shadow: 0 0 20px -4px var(--glow); } }
+.tl-body .tl-tag { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-soft); }
+.tl-body h3 { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.25rem, 3vw, 1.7rem); line-height: 1.12; margin: 8px 0; }
+.tl-body p { color: var(--text-dim); max-width: 60ch; }
+
+/* =============================================================
+   Recognition grid
+   ============================================================= */
+.rec-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+@media (min-width: 560px) { .rec-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 900px) { .rec-grid { grid-template-columns: repeat(3, 1fr); } }
+.rec-card { background: var(--bg-2); padding: clamp(22px, 3vw, 32px); transition: background 0.4s var(--ease); position: relative; }
+@media (hover: hover) { .rec-card:hover { background: var(--bg-3); } }
+.rec-card::before { content: ""; display: block; width: 26px; height: 2px; background: var(--accent); margin-bottom: 16px; box-shadow: 0 0 10px var(--glow); }
+.rec-card b { display: block; font-family: var(--font-display); font-weight: 600; font-size: clamp(1.15rem, 2.6vw, 1.5rem); letter-spacing: -0.01em; }
+.rec-card span { display: block; margin-top: 8px; font-family: var(--font-mono); font-size: 0.76rem; letter-spacing: 0.02em; color: var(--text-dim); line-height: 1.5; }
