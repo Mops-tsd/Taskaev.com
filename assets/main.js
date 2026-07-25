@@ -281,6 +281,61 @@
     });
   }
 
+  /* ---------- Before / After slider ---------- */
+  function initBeforeAfter() {
+    var frame = $("#baFrame");
+    if (!frame) return;
+    var handle = $("#baHandle");
+    var pos = 50;
+    function set(p) {
+      pos = Math.max(2, Math.min(98, p));
+      frame.style.setProperty("--pos", pos + "%");
+      if (handle) handle.setAttribute("aria-valuenow", Math.round(pos));
+    }
+    set(50);
+
+    var dragging = false;
+    function xTo(e) {
+      var r = frame.getBoundingClientRect();
+      var x = e.touches ? e.touches[0].clientX : e.clientX;
+      set(((x - r.left) / r.width) * 100);
+    }
+    frame.addEventListener("pointerdown", function (e) {
+      dragging = true;
+      try { frame.setPointerCapture(e.pointerId); } catch (err) {}
+      xTo(e);
+    });
+    frame.addEventListener("pointermove", function (e) { if (dragging) xTo(e); });
+    window.addEventListener("pointerup", function () { dragging = false; });
+    if (handle) {
+      handle.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowLeft") { set(pos - 3); e.preventDefault(); }
+        else if (e.key === "ArrowRight") { set(pos + 3); e.preventDefault(); }
+      });
+      handle.addEventListener("pointerdown", function (e) { e.stopPropagation(); dragging = true; try { frame.setPointerCapture(e.pointerId); } catch (err) {} });
+    }
+
+    // one-time hint sweep when it scrolls into view
+    if (!reduceMotion && "IntersectionObserver" in window) {
+      var hinted = false;
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting && !hinted) {
+            hinted = true; io.disconnect();
+            var seq = [66, 36, 50], i = 0;
+            frame.classList.add("ba-anim");
+            (function step() {
+              if (i >= seq.length) { setTimeout(function () { frame.classList.remove("ba-anim"); }, 560); return; }
+              set(seq[i++]);
+              setTimeout(step, 560);
+            })();
+          }
+        });
+      }, { threshold: 0.4 });
+      io.observe(frame);
+    }
+  }
+
   /* ---------- init ---------- */
   function init() {
     initLang();
@@ -291,6 +346,7 @@
     initActiveNav();
     initHero();
     initForm();
+    initBeforeAfter();
   }
 
   if (document.readyState === "loading") {

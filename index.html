@@ -213,56 +213,127 @@
     <!-- ============ Projects ============ -->
     <section class="section" id="projects">
       <div class="container">
-        <div class="projects-head">
-          <div data-reveal>
-            <span class="eyebrow" data-i18n="projectsEyebrow">Флагманские проекты</span>
-            <h2 style="font-family:var(--font-display);font-weight:500;font-size:clamp(1.95rem,5.4vw,3.5rem);line-height:1.06;letter-spacing:-.01em;margin-top:18px" data-i18n="projectsTitle">Города, рассчитанные на десятилетия</h2>
-            <p class="lead" data-i18n="projectIntro">Комплексное развитие территорий: жильё, социальная инфраструктура, инженерия и новые точки экономического роста.</p>
+        <div class="section-head" data-reveal>
+          <span class="eyebrow" data-i18n="projectsEyebrow">Флагманские проекты</span>
+          <h2 data-i18n="projectsTitle">Города, рассчитанные на десятилетия</h2>
+          <p data-i18n="projectIntro">Комплексное развитие территорий: жильё, социальная инфраструктура, инженерия и новые точки экономического роста.</p>
+        </div>
+
+        <!-- Before / After slider -->
+        <div class="ba" data-reveal>
+          <div class="ba-head">
+            <span class="ba-eyebrow" data-i18n="baEyebrow">Было / Стало</span>
+            <span class="ba-name"><b data-i18n="kenon.title">Кенон Ривьера Парк</b><i data-i18n="kenon.city">Чита • Забайкальский край</i></span>
           </div>
-          <div class="ba-toggle" data-reveal>
-            <b data-i18n="before">Строительство</b><span class="swap">↔</span><b data-i18n="after">Реализация</b>
+          <div class="ba-frame" id="baFrame">
+            <div class="ba-after"><img src="assets/img/kenon_after.jpg" alt="Кенон Ривьера Парк — готовый вид (рендер)" loading="lazy" decoding="async" /></div>
+            <div class="ba-before" id="baBefore">
+              <div class="ba-before-inner"><img src="assets/img/kenon_before.jpg" alt="Кенон Ривьера Парк — строительство" loading="lazy" decoding="async" /></div>
+            </div>
+            <span class="ba-tag ba-tag-l" data-i18n="baBefore">Было</span>
+            <span class="ba-tag ba-tag-r" data-i18n="baAfter">Стало</span>
+            <div class="ba-divider" id="baDivider">
+              <button class="ba-handle" id="baHandle" type="button" role="slider" aria-label="Было / Стало" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+                <span class="arrow">↔</span>
+              </button>
+            </div>
           </div>
         </div>
 
-        <div class="projects">
-          <article class="project" data-reveal>
-            <div class="project-visual">
-              <img src="assets/img/kenon.jpg" alt="Кенон Ривьера Парк — жилой квартал в Чите" loading="lazy" decoding="async" />
-              <span class="idx">01</span>
-              <span class="coord">52°02′N / 113°30′E</span>
-            </div>
-            <div class="project-body">
-              <div class="city" data-i18n="kenon.city">Чита • Забайкальский край</div>
-              <h3 data-i18n="kenon.title">Кенон Ривьера Парк</h3>
-              <p data-i18n="kenon.lead">Новый городской квартал с жилой, социальной и общественной инфраструктурой. Проект признан одним из лидеров российского рынка жилья по версии ЕРЗ.</p>
-              <ul class="project-metrics">
-                <li data-i18n="kenon.metrics.0">20 жилых домов</li>
-                <li data-i18n="kenon.metrics.1">265 квартир</li>
-                <li data-i18n="kenon.metrics.2">9–12 этажей</li>
+        <!-- Scale summary -->
+        <div class="pscale" data-reveal>
+          <div class="pscale-item"><b data-i18n="projectsScale.0.v">6</b><span data-i18n="projectsScale.0.label">проектов в регионах России</span></div>
+          <div class="pscale-item"><b data-i18n="projectsScale.1.v">≈1,8 млн м²</b><span data-i18n="projectsScale.1.label">жилой застройки</span></div>
+          <div class="pscale-item"><b data-i18n="projectsScale.2.v">47 000+</b><span data-i18n="projectsScale.2.label">будущих жителей</span></div>
+        </div>
+
+        <!-- All projects -->
+        <div class="section-head all-head" data-reveal>
+          <span class="eyebrow" data-i18n="allEyebrow">География проектов</span>
+          <h2 data-i18n="allTitle">Проекты TSD Group по всей России</h2>
+          <p data-i18n="allLead">Комплексное развитие территорий — от Арктики до Забайкалья.</p>
+        </div>
+
+        <div class="projects-all">
+          <article class="pcard" data-reveal>
+            <div class="pcard-img"><img src="assets/img/p_kenon.jpg" alt="Кенон Ривьера Парк, Чита" loading="lazy" decoding="async" /><span class="pcard-status" data-i18n="projectsAll.0.status">Строительство</span><span class="pcard-coord">52°02′N</span></div>
+            <div class="pcard-body">
+              <div class="pcard-city" data-i18n="projectsAll.0.city">Чита · Забайкальский край</div>
+              <h3 data-i18n="projectsAll.0.title">Кенон Ривьера Парк</h3>
+              <ul class="pcard-metrics">
+                <li data-i18n="projectsAll.0.metrics.0">392 784 м²</li>
+                <li data-i18n="projectsAll.0.metrics.1">6 468 квартир</li>
+                <li data-i18n="projectsAll.0.metrics.2">≈10 000 жителей</li>
               </ul>
-              <a class="text-link" href="https://kenon-park.ru" target="_blank" rel="noreferrer"><span data-i18n="kenon.link">Официальный сайт проекта</span><span class="arrow">↗</span></a>
             </div>
           </article>
 
-          <article class="project" data-reveal style="--reveal-delay:120ms">
-            <div class="project-visual">
-              <img src="assets/img/arktika.jpg" alt="Арктика Парк — микрорайон в Архангельской области" loading="lazy" decoding="async" />
-              <span class="idx">02</span>
-              <span class="coord">64°32′N / 40°32′E</span>
-            </div>
-            <div class="project-body">
-              <div class="city" data-i18n="arktika.city">Архангельская область</div>
-              <h3 data-i18n="arktika.title">Арктика Парк</h3>
-              <p data-i18n="arktika.lead">Новый микрорайон на 200 га: жильё, школы, детские сады, медицина, деловая и спортивная инфраструктура.</p>
-              <ul class="project-metrics">
-                <li data-i18n="arktika.metrics.0">1,128 млн м² жилья</li>
-                <li data-i18n="arktika.metrics.1">≈28 тыс. жителей</li>
-                <li data-i18n="arktika.metrics.2">800 рабочих мест</li>
+          <article class="pcard" data-reveal style="--reveal-delay:70ms">
+            <div class="pcard-img"><img src="assets/img/p_arktika.jpg" alt="Арктика Парк, Архангельск" loading="lazy" decoding="async" /><span class="pcard-status" data-i18n="projectsAll.1.status">Подготовка</span><span class="pcard-coord">64°32′N</span></div>
+            <div class="pcard-body">
+              <div class="pcard-city" data-i18n="projectsAll.1.city">Архангельская область</div>
+              <h3 data-i18n="projectsAll.1.title">Арктика Парк</h3>
+              <ul class="pcard-metrics">
+                <li data-i18n="projectsAll.1.metrics.0">200 га</li>
+                <li data-i18n="projectsAll.1.metrics.1">1,1 млн м²</li>
+                <li data-i18n="projectsAll.1.metrics.2">≈28 000 жителей</li>
               </ul>
-              <a class="text-link" href="https://tsr-gr.ru/project" target="_blank" rel="noreferrer"><span>TSD Group / projects</span><span class="arrow">↗</span></a>
+            </div>
+          </article>
+
+          <article class="pcard" data-reveal style="--reveal-delay:140ms">
+            <div class="pcard-img"><img src="assets/img/p_zabaykalsk.jpg" alt="Международный жилой квартал, Забайкальск" loading="lazy" decoding="async" /><span class="pcard-status" data-i18n="projectsAll.2.status">Строительство</span><span class="pcard-coord">49°38′N</span></div>
+            <div class="pcard-body">
+              <div class="pcard-city" data-i18n="projectsAll.2.city">ПГТ Забайкальск</div>
+              <h3 data-i18n="projectsAll.2.title">Международный жилой квартал</h3>
+              <ul class="pcard-metrics">
+                <li data-i18n="projectsAll.2.metrics.0">141 786 м²</li>
+                <li data-i18n="projectsAll.2.metrics.1">2 307 квартир</li>
+                <li data-i18n="projectsAll.2.metrics.2">4 584 жителей</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="pcard" data-reveal>
+            <div class="pcard-img"><img src="assets/img/p_habarovsk.jpg" alt="ЖК на ул. Павловича, Хабаровск" loading="lazy" decoding="async" /><span class="pcard-status" data-i18n="projectsAll.3.status">Проектирование</span><span class="pcard-coord">48°28′N</span></div>
+            <div class="pcard-body">
+              <div class="pcard-city" data-i18n="projectsAll.3.city">Хабаровск</div>
+              <h3 data-i18n="projectsAll.3.title">ЖК на ул. Павловича</h3>
+              <ul class="pcard-metrics">
+                <li data-i18n="projectsAll.3.metrics.0">113 110 м²</li>
+                <li data-i18n="projectsAll.3.metrics.1">3 770 жителей</li>
+                <li data-i18n="projectsAll.3.metrics.2">13,8 га</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="pcard" data-reveal style="--reveal-delay:70ms">
+            <div class="pcard-img"><img src="assets/img/p_murmansk.jpg" alt="Жилой квартал в Росляково, Мурманск" loading="lazy" decoding="async" /><span class="pcard-status" data-i18n="projectsAll.4.status">Проектирование</span><span class="pcard-coord">69°04′N</span></div>
+            <div class="pcard-body">
+              <div class="pcard-city" data-i18n="projectsAll.4.city">Мурманск · Росляково</div>
+              <h3 data-i18n="projectsAll.4.title">Жилой квартал в Росляково</h3>
+              <ul class="pcard-metrics">
+                <li data-i18n="projectsAll.4.metrics.0">4,5 га</li>
+                <li data-i18n="projectsAll.4.metrics.1">9–12 этажей</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="pcard" data-reveal style="--reveal-delay:140ms">
+            <div class="pcard-img"><img src="assets/img/p_kirovsk.jpg" alt="ЖК на ул. Солнечная, Кировск" loading="lazy" decoding="async" /><span class="pcard-status" data-i18n="projectsAll.5.status">Проектирование</span><span class="pcard-coord">67°37′N</span></div>
+            <div class="pcard-body">
+              <div class="pcard-city" data-i18n="projectsAll.5.city">Кировск</div>
+              <h3 data-i18n="projectsAll.5.title">ЖК на ул. Солнечная</h3>
+              <ul class="pcard-metrics">
+                <li data-i18n="projectsAll.5.metrics.0">37 068 м²</li>
+                <li data-i18n="projectsAll.5.metrics.1">1 059 жителей</li>
+                <li data-i18n="projectsAll.5.metrics.2">6 га</li>
+              </ul>
             </div>
           </article>
         </div>
+
+        <a class="text-link projects-all-link" href="https://tsr-gr.ru/project" target="_blank" rel="noreferrer" data-reveal><span data-i18n="allLink">Все проекты TSD Group</span><span class="arrow">↗</span></a>
       </div>
     </section>
 
@@ -382,6 +453,9 @@
             <h2 style="font-family:var(--font-display);font-weight:500;font-size:clamp(1.95rem,5.4vw,3.4rem);line-height:1.08;margin-top:18px" data-i18n="contactTitle">Обсудим проект, регион или инвестиционную инициативу</h2>
             <p style="color:var(--text-dim);margin-top:18px;max-width:44ch" data-i18n="contactLead">Опишите задачу — будет подготовлен предметный ответ и предложен следующий рабочий шаг.</p>
             <a class="mail-big" href="mailto:a.taskaev@tsr-gr.ru">a.taskaev@tsr-gr.ru</a>
+            <div class="contact-actions">
+              <a class="btn btn--ghost vcard-dl" href="data:text/vcard;charset=utf-8,BEGIN%3AVCARD%0D%0AVERSION%3A3.0%0D%0AN%3A%D0%A2%D0%B0%D1%81%D0%BA%D0%B0%D0%B5%D0%B2%3B%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%80%3B%D0%A1%D0%B5%D1%80%D0%B3%D0%B5%D0%B5%D0%B2%D0%B8%D1%87%3B%3B%0D%0AFN%3A%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%80%20%D0%A2%D0%B0%D1%81%D0%BA%D0%B0%D0%B5%D0%B2%0D%0AORG%3ATSD%20Group%3BAP%20TRADE%0D%0ATITLE%3A%D0%94%D0%B8%D1%80%D0%B5%D0%BA%D1%82%D0%BE%D1%80%20%D0%BF%D0%BE%20%D1%80%D0%B0%D0%B7%D0%B2%D0%B8%D1%82%D0%B8%D1%8E%20%D0%B8%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%BC%D1%83%20%D0%BF%D0%BB%D0%B0%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8E%0D%0AEMAIL%3BTYPE%3DWORK%3Aa.taskaev%40tsr-gr.ru%0D%0ATEL%3BTYPE%3DWORK%2CVOICE%3A%2B74959287888%0D%0AURL%3Ahttps%3A//tsr-gr.ru%0D%0AEND%3AVCARD%0D%0A" download="Alexander_Taskaev.vcf"><span class="dl">↓</span><span data-i18n="vcard">Сохранить контакт</span></a>
+            </div>
           </div>
 
           <form class="lead-form" data-reveal novalidate>
