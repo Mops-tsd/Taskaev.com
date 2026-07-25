@@ -1334,3 +1334,77 @@ body.intro-playing { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .intro { display: none; }
 }
+
+/* =============================================================
+   Photography — projects, media, portrait
+   ============================================================= */
+.project-visual img,
+.media-visual img {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease);
+}
+.project-visual::after { z-index: 1; }
+.project-visual .idx,
+.project-visual .coord,
+.media-visual .tag { z-index: 2; }
+@media (hover: hover) {
+  .project:hover .project-visual img,
+  .media-visual:hover img { transform: scale(1.05); }
+}
+
+/* Portrait */
+.portrait {
+  position: relative;
+  margin: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--surface);
+  align-self: stretch;
+}
+.portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 22%;
+  aspect-ratio: 4 / 5;
+  display: block;
+  filter: saturate(0.97) contrast(1.02);
+}
+.portrait figcaption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: clamp(18px, 3vw, 26px);
+  background: linear-gradient(to top, rgba(6, 9, 12, 0.94) 12%, rgba(6, 9, 12, 0.5) 60%, transparent);
+}
+.portrait figcaption b {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.15rem, 3vw, 1.45rem);
+  display: block;
+}
+.portrait figcaption span {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
+  color: var(--text-dim);
+  display: block;
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+.role-card p + p { margin-top: 16px; }
+
+.role-points-wrap { margin-top: clamp(28px, 4vw, 48px); }
+@media (min-width: 760px) {
+  .role-points-wrap .role-points {
+    grid-template-columns: 1fr 1fr;
+    column-gap: clamp(30px, 4vw, 60px);
+  }
+  .role-points-wrap .role-points li:nth-child(2) { border-top: 1px solid var(--border); }
+}
