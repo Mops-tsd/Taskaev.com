@@ -1681,3 +1681,10 @@ html[dir="rtl"] .pcard-coord { right: auto; left: 12px; }
 
 /* corner coordinates removed in favour of the portrait */
 .hero-coords { display: none; }
+
+/* Profile role — prominent positions line (replaces the corporate heading) */
+.role-lead-strong {
+  font-family: var(--font-display); font-weight: 500;
+  font-size: clamp(1.3rem, 3vw, 1.85rem); line-height: 1.24; letter-spacing: -0.01em;
+  color: var(--text); margin: 8px 0 4px;
+}
