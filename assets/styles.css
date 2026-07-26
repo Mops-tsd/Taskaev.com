@@ -1688,3 +1688,24 @@ html[dir="rtl"] .pcard-coord { right: auto; left: 12px; }
   font-size: clamp(1.3rem, 3vw, 1.85rem); line-height: 1.24; letter-spacing: -0.01em;
   color: var(--text); margin: 8px 0 4px;
 }
+
+/* =============================================================
+   Intro — network variant ("Строим будущее")
+   ============================================================= */
+.intro-brand {
+  top: clamp(20px, 4vh, 40px); left: var(--gutter);
+  font-family: var(--font-mono); font-size: clamp(0.66rem, 2.6vw, 0.78rem);
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-mute);
+  opacity: 0; transform: translateY(-8px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+.intro.step-1 .intro-brand { opacity: 1; transform: none; }
+html[dir="rtl"] .intro-brand { left: auto; right: var(--gutter); }
+
+.intro-logo .intro-name {
+  display: block; font-family: var(--font-mono);
+  font-size: clamp(0.66rem, 2.4vw, 0.8rem); letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--accent-soft); margin-bottom: 20px;
+  opacity: 0; transform: translateY(8px);
+}
+.intro.step-logo .intro-logo .intro-name { animation: introTag 0.8s 0.1s var(--ease) forwards; }
