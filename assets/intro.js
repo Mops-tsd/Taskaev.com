@@ -37,19 +37,13 @@
 
   var ui = document.createElement("div");
   ui.className = "intro-ui";
+  var brand = ((dict.heroTitleA || "Александр") + " " + (dict.heroTitleB || "Таскаев"));
   ui.innerHTML =
-    '<div class="intro-coords"><b>KENON RIVIERA PARK</b>52°02′N&nbsp;&nbsp;113°30′E · Чита</div>' +
+    '<div class="intro-coords"><b>' + esc(brand) + '</b>' + esc(tagline) + '</div>' +
     '<button class="intro-skip" type="button"><span class="lbl">' + skipTxt + '</span><span class="bar"></span></button>' +
-    '<div class="intro-project">' +
-      '<span class="eyebrow">' + esc(eyebrowTxt) + '</span>' +
-      '<h2>' + esc(kenon.title) + '</h2>' +
-      '<div class="city">' + esc(kenon.city || "") + '</div>' +
-      '<ul class="intro-metrics">' +
-        metrics.map(function (m) { return '<li data-final="' + esc(m) + '">' + esc(m) + '</li>'; }).join("") +
-      '</ul>' +
-    '</div>' +
     '<div class="intro-logo">' +
       '<span class="mark">AT</span>' +
+      '<span class="intro-name">' + esc(brand) + '</span>' +
       '<h3>' + words(slogan) + '</h3>' +
       '<span class="line"></span>' +
       '<span class="tag">' + esc(tagline) + '</span>' +

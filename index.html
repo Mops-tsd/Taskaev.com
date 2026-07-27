@@ -241,64 +241,11 @@
           <h2 data-i18n="achTitle">Профессиональный путь Александра Таскаева</h2>
           <p data-i18n="achLead">Не только стройка: роли в бизнес-сообществе, институты развития и федеральные площадки.</p>
         </div>
-        <ol class="timeline">
-          <li class="tl-item" data-reveal>
-            <div class="tl-node"><span>01</span></div>
-            <div class="tl-body">
-              <span class="tl-tag" data-i18n="achievements.0.tag">Деловая Россия</span>
-              <h3 data-i18n="achievements.0.title">Член Генерального совета</h3>
-              <p data-i18n="achievements.0.text">Участие в федеральной деловой повестке и развитии предпринимательства.</p>
-            </div>
-          </li>
-          <li class="tl-item" data-reveal>
-            <div class="tl-node"><span>02</span></div>
-            <div class="tl-body">
-              <span class="tl-tag" data-i18n="achievements.1.tag">TSD Group · AP TRADE</span>
-              <h3 data-i18n="achievements.1.title">Член совета директоров</h3>
-              <p data-i18n="achievements.1.text">Директор по развитию и стратегическому планированию группы компаний.</p>
-            </div>
-          </li>
-          <li class="tl-item" data-reveal>
-            <div class="tl-node"><span>03</span></div>
-            <div class="tl-body">
-              <span class="tl-tag" data-i18n="achievements.2.tag">Масштаб</span>
-              <h3 data-i18n="achievements.2.title">Портфель развития ≈1,8 млн м²</h3>
-              <p data-i18n="achievements.2.text">Проекты комплексного развития территорий в регионах России — от Арктики до Забайкалья.</p>
-            </div>
-          </li>
-          <li class="tl-item" data-reveal>
-            <div class="tl-node"><span>04</span></div>
-            <div class="tl-body">
-              <span class="tl-tag" data-i18n="achievements.3.tag">КРДВ</span>
-              <h3 data-i18n="achievements.3.title">Проекты в Забайкалье</h3>
-              <p data-i18n="achievements.3.text">Соглашения о развитии опорных населённых пунктов при поддержке КРДВ.</p>
-            </div>
-          </li>
-          <li class="tl-item" data-reveal>
-            <div class="tl-node"><span>05</span></div>
-            <div class="tl-body">
-              <span class="tl-tag" data-i18n="achievements.4.tag">СберБанк</span>
-              <h3 data-i18n="achievements.4.title">Проектное финансирование</h3>
-              <p data-i18n="achievements.4.text">Банковское финансирование жилого квартала «Кенон Ривьера Парк».</p>
-            </div>
-          </li>
-          <li class="tl-item" data-reveal>
-            <div class="tl-node"><span>06</span></div>
-            <div class="tl-body">
-              <span class="tl-tag" data-i18n="achievements.5.tag">ПМЭФ</span>
-              <h3 data-i18n="achievements.5.title">Спикер форума</h3>
-              <p data-i18n="achievements.5.text">Выступления по девелопменту, логистике и международной кооперации.</p>
-            </div>
-          </li>
-          <li class="tl-item" data-reveal>
-            <div class="tl-node"><span>07</span></div>
-            <div class="tl-body">
-              <span class="tl-tag" data-i18n="achievements.6.tag">Международное</span>
-              <h3 data-i18n="achievements.6.title">Выход в Кыргызстан</h3>
-              <p data-i18n="achievements.6.text">Инвестиционная и экспортная инфраструктура на дружественных рынках.</p>
-            </div>
-          </li>
-        </ol>
+        <div class="section-empty" data-reveal>
+          <span class="mark">✦</span>
+          <b data-i18n="soon">Раздел готовится</b>
+          <span data-i18n="soonNote">Материалы будут добавлены в ближайшее время</span>
+        </div>
       </div>
     </section>
 
@@ -309,6 +256,27 @@
           <span class="eyebrow" data-i18n="projectsEyebrow">Проекты</span>
           <h2 data-i18n="projectsTitle">Проекты, реализуемые при его участии</h2>
           <p data-i18n="projectIntro">Комплексное развитие территорий: жильё, социальная инфраструктура, инженерия и новые точки экономического роста.</p>
+        </div>
+
+        <!-- Before / After slider -->
+        <div class="ba" data-reveal>
+          <div class="ba-head">
+            <span class="ba-eyebrow" data-i18n="baEyebrow">Было / Стало</span>
+            <span class="ba-name"><b data-i18n="kenon.title">Кенон Ривьера Парк</b><i data-i18n="kenon.city">Чита • Забайкальский край</i></span>
+          </div>
+          <div class="ba-frame" id="baFrame">
+            <div class="ba-after"><img src="assets/img/kenon_after.jpg" alt="Кенон Ривьера Парк — готовый вид (рендер)" loading="lazy" decoding="async" /></div>
+            <div class="ba-before" id="baBefore">
+              <div class="ba-before-inner"><img src="assets/img/kenon_before.jpg" alt="Кенон Ривьера Парк — строительство" loading="lazy" decoding="async" /></div>
+            </div>
+            <span class="ba-tag ba-tag-l" data-i18n="baBefore">Было</span>
+            <span class="ba-tag ba-tag-r" data-i18n="baAfter">Стало</span>
+            <div class="ba-divider" id="baDivider">
+              <button class="ba-handle" id="baHandle" type="button" role="slider" aria-label="Было / Стало" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+                <span class="arrow">↔</span>
+              </button>
+            </div>
+          </div>
         </div>
 
         <!-- Scale summary -->
@@ -475,31 +443,10 @@
           <h2 data-i18n="recTitle">Институты и площадки профессиональной деятельности</h2>
           <p data-i18n="recLead">Организации и площадки, в рамках которых Александр реализует профессиональную деятельность и публичную повестку.</p>
         </div>
-        <div class="rec-grid">
-          <div class="rec-card" data-reveal>
-            <b data-i18n="recognition.0.name">Деловая Россия</b>
-            <span data-i18n="recognition.0.note">Генеральный совет</span>
-          </div>
-          <div class="rec-card" data-reveal style="--reveal-delay:60ms">
-            <b data-i18n="recognition.1.name">КРДВ</b>
-            <span data-i18n="recognition.1.note">Соглашения по проектам ДФО и Забайкалья</span>
-          </div>
-          <div class="rec-card" data-reveal style="--reveal-delay:120ms">
-            <b data-i18n="recognition.2.name">СберБанк</b>
-            <span data-i18n="recognition.2.note">Проектное финансирование</span>
-          </div>
-          <div class="rec-card" data-reveal style="--reveal-delay:180ms">
-            <b data-i18n="recognition.3.name">ЕРЗ</b>
-            <span data-i18n="recognition.3.note">Проект в числе лидеров рынка жилья</span>
-          </div>
-          <div class="rec-card" data-reveal style="--reveal-delay:240ms">
-            <b data-i18n="recognition.4.name">ПМЭФ</b>
-            <span data-i18n="recognition.4.note">Площадка публичных выступлений</span>
-          </div>
-          <div class="rec-card" data-reveal style="--reveal-delay:300ms">
-            <b data-i18n="recognition.5.name">РБК</b>
-            <span data-i18n="recognition.5.note">Деловые интервью и публикации</span>
-          </div>
+        <div class="section-empty" data-reveal>
+          <span class="mark">✦</span>
+          <b data-i18n="soon">Раздел готовится</b>
+          <span data-i18n="soonNote">Материалы будут добавлены в ближайшее время</span>
         </div>
       </div>
     </section>
@@ -540,25 +487,10 @@
           <a class="text-link" href="https://tsr-gr.ru/news" target="_blank" rel="noreferrer" data-reveal><span data-i18n="newsAll">Все новости TSD Group</span><span class="arrow">↗</span></a>
         </div>
 
-        <div class="news-list" data-reveal>
-          <a class="news-item" href="https://tsr-gr.ru/news97" target="_blank" rel="noreferrer">
-            <span class="news-index">01</span>
-            <div class="news-meta"><span class="date" data-i18n="news.0.date">18.06.2026</span><span class="tag" data-i18n="news.0.tag">РБК</span></div>
-            <div class="news-title" data-i18n="news.0.title">Интервью о развитии логистики, девелопмента и международной кооперации</div>
-            <span class="news-arrow">↗</span>
-          </a>
-          <a class="news-item" href="https://tsr-gr.ru/news90" target="_blank" rel="noreferrer">
-            <span class="news-index">02</span>
-            <div class="news-meta"><span class="date" data-i18n="news.1.date">05.06.2026</span><span class="tag" data-i18n="news.1.tag">ПМЭФ</span></div>
-            <div class="news-title" data-i18n="news.1.title">Опорные населённые пункты Забайкалья и вторая очередь Международного жилого квартала</div>
-            <span class="news-arrow">↗</span>
-          </a>
-          <a class="news-item" href="https://tsr-gr.ru/news91" target="_blank" rel="noreferrer">
-            <span class="news-index">03</span>
-            <div class="news-meta"><span class="date" data-i18n="news.2.date">05.06.2026</span><span class="tag" data-i18n="news.2.tag">Международная кооперация</span></div>
-            <div class="news-title" data-i18n="news.2.title">Инвестиционный выход в Кыргызскую Республику и экспортная инфраструктура</div>
-            <span class="news-arrow">↗</span>
-          </a>
+        <div class="section-empty" data-reveal>
+          <span class="mark">✦</span>
+          <b data-i18n="soon">Раздел готовится</b>
+          <span data-i18n="soonNote">Материалы будут добавлены в ближайшее время</span>
         </div>
       </div>
     </section>

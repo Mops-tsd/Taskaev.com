@@ -1652,11 +1652,11 @@ html[dir="rtl"] .pcard-coord { right: auto; left: 12px; }
   position: relative; margin: 0;
   border-radius: var(--radius-lg); overflow: hidden;
   border: 1px solid var(--border-strong); background: var(--surface);
-  aspect-ratio: 3 / 2; max-height: 42vh; width: 100%;
+  aspect-ratio: 3 / 4; max-height: 58vh; width: 100%;
   box-shadow: 0 34px 90px -34px rgba(0, 0, 0, 0.85);
 }
 .hero-portrait img {
-  width: 100%; height: 100%; object-fit: cover; object-position: 50% 16%;
+  width: 100%; height: 100%; object-fit: cover; object-position: 50% 8%;
   filter: saturate(0.98) contrast(1.02);
 }
 .hero-portrait figcaption {
@@ -1669,8 +1669,8 @@ html[dir="rtl"] .pcard-coord { right: auto; left: 12px; }
 .hero-portrait figcaption .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px var(--glow); flex: none; }
 
 @media (min-width: 900px) {
-  .hero-inner.hero-grid { grid-template-columns: 1.05fr 0.95fr; gap: clamp(36px, 5vw, 74px); }
-  .hero-portrait { order: 2; aspect-ratio: 4 / 5; max-height: 76vh; }
+  .hero-inner.hero-grid { grid-template-columns: 1.08fr 0.92fr; gap: clamp(36px, 5vw, 74px); align-items: end; }
+  .hero-portrait { order: 2; aspect-ratio: 2 / 3; max-height: 90vh; align-self: stretch; }
   .hero-text { order: 1; }
   .hero h1 { font-size: clamp(3rem, 7.4vw, 6.2rem); }
   .hero-lead { max-width: 42ch; }
@@ -1709,3 +1709,19 @@ html[dir="rtl"] .intro-brand { left: auto; right: var(--gutter); }
   opacity: 0; transform: translateY(8px);
 }
 .intro.step-logo .intro-logo .intro-name { animation: introTag 0.8s 0.1s var(--ease) forwards; }
+
+/* Empty section placeholder */
+.section-empty {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; gap: 12px;
+  min-height: clamp(180px, 26vw, 300px);
+  border: 1px dashed var(--border-strong); border-radius: var(--radius-lg);
+  background: var(--surface); padding: clamp(30px, 5vw, 60px);
+}
+.section-empty .mark {
+  width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center;
+  border: 1px solid var(--border-strong); color: var(--accent-soft); margin-bottom: 4px;
+  font-family: var(--font-mono);
+}
+.section-empty b { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.2rem, 3vw, 1.6rem); color: var(--text); }
+.section-empty span { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.03em; color: var(--text-mute); max-width: 40ch; }
