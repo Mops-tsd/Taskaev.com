@@ -1725,3 +1725,39 @@ html[dir="rtl"] .intro-brand { left: auto; right: var(--gutter); }
 }
 .section-empty b { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.2rem, 3vw, 1.6rem); color: var(--text); }
 .section-empty span { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.03em; color: var(--text-mute); max-width: 40ch; }
+
+/* =============================================================
+   Work-in-progress banner
+   ============================================================= */
+.wip-banner {
+  position: fixed; left: clamp(12px, 3vw, 28px);
+  bottom: calc(14px + env(safe-area-inset-bottom)); z-index: 95;
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 9px 16px; border-radius: 999px;
+  background: rgba(6, 9, 12, 0.82); border: 1px solid var(--border-strong);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--text-dim); white-space: nowrap;
+  box-shadow: 0 10px 30px -14px rgba(0,0,0,0.9);
+  max-width: calc(100vw - 24px);
+}
+.wip-banner .dot {
+  width: 7px; height: 7px; border-radius: 50%; background: var(--warm); flex: none;
+  box-shadow: 0 0 10px rgba(232,162,92,0.7);
+  animation: wipPulse 2.4s ease-in-out infinite;
+}
+@keyframes wipPulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+@media (prefers-reduced-motion: reduce) { .wip-banner .dot { animation: none; } }
+@media (max-width: 560px) { .wip-banner { font-size: 0.6rem; padding: 8px 13px; } }
+
+/* =============================================================
+   Video
+   ============================================================= */
+.video-wrap {
+  position: relative; max-width: 460px; margin-inline: auto;
+  border: 1px solid var(--border-strong); border-radius: var(--radius-lg);
+  overflow: hidden; background: #000;
+  box-shadow: 0 34px 90px -40px rgba(0,0,0,0.9);
+}
+.video-wrap video { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; background: #000; }
+@media (min-width: 900px) { .video-wrap { max-width: 420px; } }
