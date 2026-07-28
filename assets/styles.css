@@ -1761,3 +1761,20 @@ html[dir="rtl"] .intro-brand { left: auto; right: var(--gutter); }
 }
 .video-wrap video { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; background: #000; }
 @media (min-width: 900px) { .video-wrap { max-width: 420px; } }
+
+/* ---------- Consent, honeypot, status ---------- */
+.lead-form .consent {
+  flex-direction: row; align-items: flex-start; gap: 11px;
+  font-size: 0.86rem; color: var(--text-dim); cursor: pointer; margin-top: 2px;
+}
+.lead-form .consent input {
+  width: 18px; height: 18px; flex: none; margin-top: 3px;
+  accent-color: var(--accent); cursor: pointer;
+}
+.lead-form .consent span { font-family: inherit; font-size: 0.86rem; letter-spacing: 0; text-transform: none; color: var(--text-dim); }
+.lead-form .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.form-status { min-height: 1.2em; font-family: var(--font-mono); font-size: 0.76rem; letter-spacing: 0.02em; }
+.form-status.pending { color: var(--text-mute); }
+.form-status.ok { color: var(--accent); }
+.form-status.warn { color: var(--warm); }
+.lead-form button[disabled] { opacity: 0.7; cursor: progress; }

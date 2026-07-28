@@ -243,41 +243,71 @@
     }
   }
 
-  /* ---------- Contact form → mailto ---------- */
+  /* ---------- Contact form → Telegram (fallback: email) ---------- */
   function initForm() {
     var form = $(".lead-form");
     if (!form) return;
+    var loadedAt = Date.now();
+    var statusEl = $(".form-status", form);
+    var btn = $("button[type=submit]", form);
+    var label = btn ? $(".btn-label", btn) : null;
+    var defaultLabel = label ? label.textContent : "";
+
+    function say(kind, key, fallback) {
+      if (!statusEl) return;
+      var dict = I18N[currentLang] || I18N.ru || {};
+      statusEl.textContent = (dict.form && dict.form[key]) || fallback;
+      statusEl.className = "form-status " + kind;
+    }
+
+    function mailtoFallback(d) {
+      var dict = I18N[currentLang] || I18N.ru || {};
+      var subject = (dict.contactEyebrow || "Партнёрство") +
+        (d.name ? " — " + d.name : "") + (d.company ? ", " + d.company : "");
+      var body = d.message + "\n\n—\n" + d.name + (d.company ? " · " + d.company : "") + "\n" + d.contact;
+      window.location.href = "mailto:a.taskaev@tsr-gr.ru?subject=" +
+        encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    }
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       if (!form.reportValidity()) return;
-      var data = new FormData(form);
-      var name = (data.get("name") || "").toString().trim();
-      var company = (data.get("company") || "").toString().trim();
-      var contact = (data.get("contact") || "").toString().trim();
-      var message = (data.get("message") || "").toString().trim();
 
-      var dict = I18N[currentLang] || I18N.ru;
-      var subjectBase = (dict && dict.contactEyebrow) ? dict.contactEyebrow : "Partnership";
-      var subject = subjectBase + (name ? " — " + name : "") + (company ? ", " + company : "");
-      var body =
-        message + "\n\n" +
-        "—\n" +
-        name + (company ? " · " + company : "") + "\n" +
-        contact;
+      var fd = new FormData(form);
+      var d = {
+        name: (fd.get("name") || "").toString().trim(),
+        company: (fd.get("company") || "").toString().trim(),
+        contact: (fd.get("contact") || "").toString().trim(),
+        message: (fd.get("message") || "").toString().trim()
+      };
+      fd.append("elapsed", String(Math.round((Date.now() - loadedAt) / 1000)));
 
-      var href = "mailto:a.taskaev@tsr-gr.ru?subject=" +
-        encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+      if (btn) btn.disabled = true;
+      if (label) label.textContent = "…";
+      say("pending", "sending", "Отправляем…");
 
-      var btn = $("button[type=submit]", form);
-      var label = btn ? $(".btn-label", btn) : null;
-      var prev = label ? label.textContent : "";
-      if (btn) btn.classList.add("sent");
-      if (label) label.textContent = "✓";
-      window.location.href = href;
-      setTimeout(function () {
-        if (btn) btn.classList.remove("sent");
-        if (label) label.textContent = prev;
-      }, 2600);
+      fetch("send.php", { method: "POST", body: fd })
+        .then(function (r) { return r.json().catch(function () { return { ok: r.ok }; }); })
+        .then(function (res) {
+          if (res && res.ok) {
+            form.reset();
+            if (btn) btn.classList.add("sent");
+            if (label) label.textContent = "✓";
+            say("ok", "sent", "Заявка отправлена — спасибо!");
+          } else {
+            throw new Error((res && res.error) || "send failed");
+          }
+        })
+        .catch(function () {
+          say("warn", "fallbackNote", "Отправляем через почтовую программу…");
+          mailtoFallback(d);
+        })
+        .then(function () {
+          setTimeout(function () {
+            if (btn) { btn.disabled = false; btn.classList.remove("sent"); }
+            if (label) label.textContent = defaultLabel;
+          }, 3200);
+        });
     });
   }
 
